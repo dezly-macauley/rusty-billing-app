@@ -12,10 +12,8 @@ pub fn get_user_input() -> Option<String> {
     let formated_input: String = input_buffer.trim().to_string();
 
     if formated_input != "".to_string() {
-        println!("{:?}", formated_input);
         return Some(formated_input);
     } else {
-        println!("The user didn't type anything");
         return None;
     }
 
