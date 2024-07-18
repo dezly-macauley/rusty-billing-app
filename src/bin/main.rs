@@ -32,6 +32,44 @@ impl MainMenu {
 
 }
 
+#[derive(Debug, Clone)]
+struct Bill {
+    name: String,
+    amount: f64
+}
+
+// TODO: Consider adding more list to this struct 
+// E.g. home_bills, clothing_bills, food_bills
+
+struct BillCollection {
+    list_of_bills: Vec<Bill>
+}
+
+impl BillCollection {
+
+    // NOTE: A method to create a new instance of the struct,
+    // with the fields set
+
+    fn new() -> Self {
+        
+        Self {
+            list_of_bills: vec![]
+        }
+
+    }
+
+    // This makes it easy to add a new bill to an instance of a bill.
+    fn add_bill(&mut self, bill: Bill) {
+        self.list_of_bills.push(bill);
+    }
+
+    fn get_all(&self) -> Vec<&Bill> {
+        //
+        self.list_of_bills.iter().collect()
+    }
+
+}
+
 fn main() {
 
     // NOTE: Hidden for now
