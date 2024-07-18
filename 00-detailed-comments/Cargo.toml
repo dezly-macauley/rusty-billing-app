@@ -1,0 +1,14 @@
+
+[package]
+name = "rusty-billing-app"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+# NOTE: This is the entry point of the library folder
+#Think of this as home page of a website.
+# rba stands for rusty-billing-app
+name = "rba_library"
+path = "src/lib/rba_library.rs"
+
+[dependencies]

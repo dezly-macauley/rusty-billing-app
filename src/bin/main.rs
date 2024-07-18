@@ -1,4 +1,4 @@
-use user_input_functions::get_user_input;
+use rba_library::user_input::input_functions::get_user_input;
 
 enum MainMenu {
     AddBill,
