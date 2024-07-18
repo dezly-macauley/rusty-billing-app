@@ -8,11 +8,16 @@ use std::io;
 // 2. None          If the user pressed enter without typing an input. 
 fn get_user_input() -> Option<String> {
 
+    //SEC: Step 1: Create a buffer to store the user input
+
     // This variable will be used to capture 
     // the user's raw input from the terminal 
     // It is set to an empty String, that will be replaced with the actual
     // input of the user
     let mut input_buffer: String = String::new();
+
+    // SEC: Step 2: Read the raw input, store it, and remember to handling the 
+    // reading error
 
     // NOTE: io:stdin
 
@@ -60,7 +65,7 @@ fn get_user_input() -> Option<String> {
         Please try again");
     }
 
-    // SEC: Formatting The Raw User Input
+    // SEC: Step 3: Format The Raw User Input
    
     // .trim() will remove any whitespace from the raw input
     // whitespace is extra spaces, trailing characters, the Enter key etc.
@@ -69,20 +74,14 @@ fn get_user_input() -> Option<String> {
     // So .to_string() will convert &str to String 
     let formated_input: String = input_buffer.trim().to_string();
 
-    // SEC: Return either the formated String, or None
+    // SEC: Step 4: Return either the formated String, or None
 
     if formated_input != "".to_string() {
-        // println!("{:?}", formated_input);
+        println!("{:?}", formated_input);
         return Some(formated_input);
     } else {
-        // println!("The user didn't type anything");
+        println!("The user didn't type anything");
         return None;
     }
-
-}
-
-fn main() {
-
-    get_user_input();
 
 }
