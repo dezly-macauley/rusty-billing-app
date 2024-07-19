@@ -8,7 +8,9 @@ pub mod user_input {
 }
 
 // This will list the "menu_functionality" folder,
-pub mod menu {
+pub mod menus {
     // and all of the .rs files inside it
-    pub mod menu_a;
+    pub mod bill_structures;
+    pub mod add_bill;
+    pub mod view_bills;
 }

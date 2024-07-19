@@ -1,6 +1,6 @@
 use rba_library::user_input::input_functions::get_user_input;
 
-enum MainMenu {
+pub enum MainMenu {
     AddBill,
     ViewBills,
 }
@@ -8,16 +8,14 @@ enum MainMenu {
 // Adding functionality to the enum
 impl MainMenu {
 
-
     fn show_options() {
         println!("");
-        println!("========| Rusty Billing App |========");
-        println!("-------------------------------------");
-        println!("1 - Add Bill");
-        println!("2 - View Bills");
-        println!("-------------------------------------");
-        println!("To select a menu option,");
-        print!("type a number and press Enter: ");
+        println!("=================| Rusty Billing App |=================");
+        println!("--------------------------------------------------------");
+        println!("                  1 - Add Bill");
+        println!("                  2 - View Bills");
+        println!("-------------------------------------------------------");
+        println!("To select a menu option, type a number and press Enter:");
     }
 
     fn from_str(input: &str) -> Option<MainMenu>  {
@@ -28,44 +26,6 @@ impl MainMenu {
             _ => None
         }
 
-    }
-
-}
-
-#[derive(Debug, Clone)]
-struct Bill {
-    name: String,
-    amount: f64
-}
-
-// TODO: Consider adding more list to this struct 
-// E.g. home_bills, clothing_bills, food_bills
-
-struct BillCollection {
-    list_of_bills: Vec<Bill>
-}
-
-impl BillCollection {
-
-    // NOTE: A method to create a new instance of the struct,
-    // with the fields set
-
-    fn new() -> Self {
-        
-        Self {
-            list_of_bills: vec![]
-        }
-
-    }
-
-    // This makes it easy to add a new bill to an instance of a bill.
-    fn add_bill(&mut self, bill: Bill) {
-        self.list_of_bills.push(bill);
-    }
-
-    fn get_all(&self) -> Vec<&Bill> {
-        //
-        self.list_of_bills.iter().collect()
     }
 
 }
