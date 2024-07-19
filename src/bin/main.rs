@@ -1,5 +1,9 @@
 use rba_library::user_input::input_functions::get_user_input;
 
+use rba_library::menus::bill_structures::BillCollection;
+use rba_library::menus::add_bill::add_bill;
+use rba_library::menus::view_bills::view_bills;
+
 pub enum MainMenu {
     AddBill,
     ViewBills,
@@ -32,10 +36,9 @@ impl MainMenu {
 
 fn main() {
 
-    // NOTE: Hidden for now
-    // get_user_input();
-
-    // FIX: Handle these errors better
+    // Create an new instance of a bill collection (A list that can store
+    // bills. And each bill is a struct)
+    let mut bill_collection: BillCollection = BillCollection::new();
 
     loop {
         MainMenu::show_options();
@@ -46,10 +49,10 @@ fn main() {
         // is returned as a String.
         // However the from_str function accepts a string slice
         match MainMenu::from_str(input.as_str()) {
-            // means () do nothing
-            Some(MainMenu::AddBill) => (),
-            Some(MainMenu::ViewBills) => (),
-            // This will exit the program
+            Some(MainMenu::AddBill) => add_bill(&mut bill_collection),
+            Some(MainMenu::ViewBills) => view_bills(&bill_collection),
+            // This will exit the program immeadiatley if there is an error
+            // FIX: Handle this error more gracefully
             None => return
         }
     }
