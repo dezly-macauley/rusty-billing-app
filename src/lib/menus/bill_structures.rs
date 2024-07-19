@@ -69,4 +69,19 @@ impl BillCollection {
 
     }
 
+    pub fn update_bill(&mut self, name: &str, amount: f64) -> bool {
+        
+        // self.hashmap_of_bills.get_mut(name) will return a mutable reference
+        // to the key that you want to search for
+        // This returns and Option<&mut value>
+        match self.hashmap_of_bills.get_mut(name) {
+            Some(bill) => {
+                bill.amount = amount;
+                return true;
+            },
+            None => false
+        }
+
+    }
+
 }

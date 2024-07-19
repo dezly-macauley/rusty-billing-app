@@ -4,11 +4,13 @@ use rba_library::menus::bill_structures::BillCollection;
 use rba_library::menus::add_bill::add_bill;
 use rba_library::menus::view_bills::view_bills;
 use rba_library::menus::remove_bill::remove_bill;
+use rba_library::menus::update_bill::update_bill;
 
 pub enum MainMenu {
     AddBill,
     ViewBills,
-    RemoveBill
+    RemoveBill,
+    UpdateBill
 }
 
 // Adding functionality to the enum
@@ -21,6 +23,7 @@ impl MainMenu {
         println!("                  1 - Add Bill");
         println!("                  2 - View Bills");
         println!("                  3 - Remove Bill");
+        println!("                  4 - Update Bill");
         println!("-------------------------------------------------------");
         println!("To select a menu option, type a number and press Enter:");
     }
@@ -31,6 +34,7 @@ impl MainMenu {
             "1" => Some(Self::AddBill),
             "2" => Some(Self::ViewBills),
             "3" => Some(Self::RemoveBill),
+            "4" => Some(Self::UpdateBill),
             _ => None
         }
 
@@ -56,8 +60,7 @@ fn main() {
             Some(MainMenu::AddBill) => add_bill(&mut bill_collection),
             Some(MainMenu::ViewBills) => view_bills(&bill_collection),
             Some(MainMenu::RemoveBill) => remove_bill(&mut bill_collection),
-            // This will exit the program immeadiatley if there is an error
-            // FIX: Handle this error more gracefully
+            Some(MainMenu::UpdateBill) => update_bill(&mut bill_collection),
             None => return
         }
     }
