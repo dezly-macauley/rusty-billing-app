@@ -13,4 +13,5 @@ pub mod menus {
     pub mod bill_structures;
     pub mod add_bill;
     pub mod view_bills;
+    pub mod remove_bill;
 }
